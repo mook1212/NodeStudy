@@ -52,6 +52,7 @@ exports.login = async function(req, res) {
 
     if (result) {
         req.session.user = result;
+        // sessionStorage.setItem('user', req.session.user);
         res.status(200).send(result);
     } else {
         res.send(result);

@@ -44,6 +44,16 @@
             white-space: pre-wrap;
         }
 
+        .btn {
+            display: flex;
+            justify-content: flex-end;
+        }
+        button {
+            width: 130px;
+            height: 40px;
+            margin: 10px;
+            cursor: pointer;
+        }
 
     </style>
 
@@ -62,7 +72,14 @@
         <div class="text">
 
         </div>
+
     </div>
+
+    <div class="btn">
+        <button id="modify">게시글 수정</button>
+        <button id="delete">게시글 삭제</button>
+    </div>
+
 
     <script src="/view/notice/detail.js" type="module"></script>
 </body>

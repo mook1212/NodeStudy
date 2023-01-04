@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notice</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous">
+        </script>
+
+    <!-- 페이지네이션 라이브러리 -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/02b04573cb.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+
+    <h1>테스트</h1>
+
+    <button id="delete">삭제</button>
+
+    <!-- 파이어베이스 연동 -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyBdp_8x4eixio0yS9APFYhCyuEWu7wTVd8",
+            authDomain: "test-6a214.firebaseapp.com",
+            projectId: "test-6a214",
+            storageBucket: "test-6a214.appspot.com",
+            messagingSenderId: "324318899114",
+            appId: "1:324318899114:web:b7e1cca282e307b2dc59d3",
+            measurementId: "G-R9Q0CYN08B"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore()
+
+        document.getElementById('delete').addEventListener('click', () => {
+            // db.collection('게시글목록').where('id', '==', '72').get().then((res) => {
+            //     res.forEach((a) => {
+
+            //         // DB패스워드와 input창에 작성한 패스워드가 일치시 삭제
+            //         if (a.data().pw == pw) {
+            //             db.collection('게시글목록').doc(local).delete()
+            //                 .then(() => {
+            //                     location.href = '/QnA/notice.html'
+            //                 })
+            //         } else {
+            //             alert('비밀번호를 확인하여주세요')
+            //         }
+
+            //     })
+            // })
+
+            db.collection('PostList').doc('7').delete()
+                .then(() => {
+                    console.log('삭제완료');
+                })
+        })
+    </script>
+
+
+</body>
+
+</html>
